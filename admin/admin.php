@@ -10,7 +10,7 @@ function azad_scroll_top_admin_menu(){
             esc_html('Azad Scroll Top','ast'),
             'manage_options',
             'azad_scroll_top_settings_page',
-            'azad_scroll_top_plugin_settings_render_page',
+            'azad_scroll_top_plugin_settings_render_page'
     );
     if(! $settings){
         return;
@@ -36,7 +36,7 @@ function azad_scroll_top_setting_sections_fields(){
             'azad_scroll_top_general_settings',
             '',
             '__return_false',
-            'azad_scroll_top_settings_page',
+            'azad_scroll_top_settings_page'
     );
     // Add enable/disable checkbox setting field.
     add_settings_field(
@@ -137,7 +137,8 @@ function azad_scroll_top_enable_field(){
     <p>
         <input id="enable_scroll_top" type="checkbox" name="azad_scroll_top_plugin_settings[azad_scroll_top_enable]"  value="1" <?php checked(1,$settings); ?>/>
         <label for="enable_scroll_top"><?php esc_html_e('Enable scroll top?','ast'); ?></label>        
-    </p>    
+    </p>
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 </fieldset>
 <?php }
 
@@ -156,6 +157,7 @@ function azad_scroll_top_type_field(){
             <?php esc_html_e('Text','ast'); ?>
         </label>        
     </p>    
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 </fieldset>
 <?php }
 
@@ -174,6 +176,7 @@ function azad_scroll_top_position_field(){
             <?php esc_html_e('Left Side','ast'); ?>
         </label>        
     </p>    
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 </fieldset>
 <?php }
 
@@ -181,12 +184,14 @@ function azad_scroll_top_bg_color_field(){
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_bg_color' );
 ?>
     <input class="color-scroll" type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_bg_color]"  value="<?php echo sanitize_hex_color($settings); ?>" />
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 
 function azad_scroll_top_color_field(){ 
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_color' );
 ?>
     <input class="color-scroll" type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_color]"  value="<?php echo sanitize_hex_color($settings); ?>" />
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 
 function azad_scroll_top_radius_field(){ 
@@ -211,6 +216,7 @@ function azad_scroll_top_radius_field(){
             <span class="screen-reader-text"><?php esc_html_e('Rounded','ast'); ?></span>
         </label>
     </p>    
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 </fieldset>
 <?php }
 function azad_scroll_top_animation_field(){ 
@@ -232,30 +238,43 @@ function azad_scroll_top_animation_field(){
             <?php esc_html_e( 'None', 'scroll-top' ); ?>
         </label>
     </p>    
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 </fieldset>
 <?php }
 function azad_scroll_top_speed_field(){ 
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_speed' );
 ?>
-    <input type="number" name="azad_scroll_top_plugin_settings[azad_scroll_top_speed]" step="10" min="50" max="500" value="<?php echo (int) $settings; ?>" />
-    <?php esc_html_e( 'milisecond', 'scroll-top' ); ?>
+	<p>
+		<input type="number" name="azad_scroll_top_plugin_settings[azad_scroll_top_speed]" step="10" min="50" max="500" value="<?php echo (int) $settings; ?>" />
+		<?php esc_html_e( 'milisecond', 'scroll-top' ); ?>
+	</p>
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 function azad_scroll_top_distance_field(){ 
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_distance' );
 ?>
-    <input type="number" name="azad_scroll_top_plugin_settings[azad_scroll_top_distance]" step="10" min="0" max="500" value="<?php echo (int) $settings; ?>" />
-            <?php esc_html_e( 'px', 'scroll-top' ); ?>
+    <p>
+		<input type="number" name="azad_scroll_top_plugin_settings[azad_scroll_top_distance]" step="10" min="0" max="500" value="<?php echo (int) $settings; ?>" />
+		<?php esc_html_e( 'px', 'scroll-top' ); ?>
+	</p>
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 function azad_scroll_top_target_field(){ 
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_target' );
 ?>
-    <input type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_target]"  value="<?php echo (int) $settings; ?>" />
-    <?php esc_html_e( 'Example #page', 'scroll-top' ); ?>
+	<p>
+		<input type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_target]"  value="<?php echo (int) $settings; ?>" />
+		<?php esc_html_e( 'Example #page', 'scroll-top' ); ?>
+	</p>
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 function azad_scroll_top_css_filed(){ 
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_css' );
 ?>
-    <textarea type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_css]" cols="50" rows="12"></textarea>
+	<p>
+		<textarea type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_css]" cols="50" rows="12"></textarea>
+	</p>
+	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
 function azad_scroll_top_plugin_settings_render_page(){ ?>
 <div class="wrap">

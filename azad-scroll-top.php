@@ -6,7 +6,7 @@ Plugin URi: gittechs.com/plugin/azad-scroll-top
 Author: Md. Abul Kalam Azad
 Author URI: gittechs.com/author
 Author Email: webdevazad@gmail.com
-Version: 0.0.0.1
+Version: 1.0.0
 Text Domain: azad-scroll-top
 */
 if(! defined('ABSPATH')) exit;
