@@ -272,7 +272,7 @@ function azad_scroll_top_css_filed(){
     $settings = azad_scroll_top_get_plugin_settings( 'azad_scroll_top_css' );
 ?>
 	<p>
-		<textarea type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_css]" cols="50" rows="12"></textarea>
+		<textarea type="text" name="azad_scroll_top_plugin_settings[azad_scroll_top_css]" cols="60" rows="4"></textarea>
 	</p>
 	<em>Write somedescription here knowing how to use this text and so on...</em> 
 <?php }
@@ -293,7 +293,7 @@ function azad_scroll_top_plugin_settings_render_page(){ ?>
                     <div class="postbox">
                         <h3 class="hndle"><span><?php esc_html_e('Plugin Author','ast'); ?></span><h3>                                
                         <div class="inside">
-                            <p>You need help with your website to fix an issue or to redesign it because you do not have to do it yourself. Great! i can help you. I am the plugin author and experienced WEB UI designer and WordPress developer with over six years of experience. I am the perfect freelancer for your project! Don't hesitate to <a href="https://www.gittechs.com/author" target="_blank">Contact Me</a>!</p>
+                            <p>Hey! <br />You need help with your website to fix any issue? or you wanna redesign your site and you do not have time to do it yourself. If so, you are in the right place. You do nto need to do it yourself. I can help you in all thorugh your dream design. Anyway, I am the plugin author and experienced WEB UI designer and WordPress themes and plugin developer with over seven years of practical experience. Been working as a freelancer for thousands of websites around the globe. Please do not hesitate to <a href="https://www.fiverr.com/wptahera" target="_blank">Contact Me</a>. Ready and waiting to help you asap.</p>
                         </div>
                     </div>
                     <div class="postbox">
@@ -303,6 +303,28 @@ function azad_scroll_top_plugin_settings_render_page(){ ?>
                                 <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Author','ast')?></a></li>
                                 <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Support','ast')?></a></li>
                                 <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Please rate the plugin','ast')?></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="postbox">
+                        <h3 class="hndle"><span><?php esc_html_e('Our Other Plugins','ast'); ?></span><h3>
+                        <div class="inside">
+                            <ul class="ul-square">
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Social Share','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Latest Posts','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Recent Posts','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Related Posts','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Related Posts','ast')?></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="postbox">
+                        <h3 class="hndle"><span><?php esc_html_e('Our Themes','ast'); ?></span><h3>
+                        <div class="inside">
+                            <ul class="ul-square">
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Lite','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad X','ast')?></a></li>
+                                <li><a href="https://www.gittechs.com/rate" target="_blank"><?php esc_html_e('Azad Guineapig','ast')?></a></li>
                             </ul>
                         </div>
                     </div>
