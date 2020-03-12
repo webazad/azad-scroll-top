@@ -5,7 +5,7 @@
  * and open the template in the editor.
  */
 
-function azad_scroll_top_default_settings(){
+function ast_default_settings(){
     $default_settings = array(
         'azad_scroll_top_enable'        => 1,
         'azad_scroll_top_type'          => 'icon',
@@ -19,10 +19,10 @@ function azad_scroll_top_default_settings(){
         'azad_scroll_top_target'        => '',
         'azad_scroll_top_css'           => ''
     );
-    return apply_filters('azad_scroll_top_default_settings',$default_settings);
+    return apply_filters( 'ast_default_settings', $default_settings );
 }
-function azad_scroll_top_get_plugin_settings($option = ''){
-    $settings = get_option('azad_scroll_top_plugin_settings',azad_scroll_top_default_settings());
+function azad_scroll_top_get_plugin_settings( $option = '' ){
+    $settings = get_option( 'azad_scroll_top_plugin_settings', ast_default_settings() );
     return $settings[$option];
 }
 function azad_scroll_top_head(){ 
