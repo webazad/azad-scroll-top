@@ -291,6 +291,19 @@ function azad_scroll_top_plugin_settings_render_page(){ ?>
             <div id="postbox-container-1" class="postbox-container">
                 <div>
                     <div class="postbox">
+                        <h3 class="hndle"><span><?php esc_html_e( 'Donate $5, $10, $15', AST_TEXTDOMAIN ); ?></span><h3>                                
+                        <div class="inside">
+                            <p>If you like this plugin, consider supporting it by donating a token of your appreciation.</p>
+                            <h3>Some other ways to support this plugin:</h3>
+                            <ul class="ul-square">
+                            <li><a href="http://wordpress.org/support/view/plugin-reviews/wp-social-sharing?rate=5#postform" target="_blank"><?php printf( __( 'Leave a %s review on WordPress.org', 'wp-social-sharing' ), '&#9733;&#9733;&#9733;&#9733;&#9733;' ); ?></a></li>
+				<li><a href="http://twitter.com/intent/tweet/?text=<?php echo urlencode('I am using Wordpress "WP Social Sharing" plugin to show social sharing buttons on my WordPress site.'); ?>&via=arjun077&url=<?php echo urlencode('http://wordpress.org/plugins/wp-social-sharing/'); ?>" target="_blank"><?php _e('Tweet about this plugin','wp-social-sharing');?></a></li>
+				<li><a href="http://wordpress.org/plugins/wp-social-sharing/#compatibility"  target="_blank"><?php _e( 'Vote "works" on the WordPress.org plugin page', 'wp-social-sharing' ); ?></a></li>
+				<li><a href="http://www.arjunjain.info">Hire Me</a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="postbox">
                         <h3 class="hndle"><span><?php esc_html_e( 'Plugin Author', AST_TEXTDOMAIN ); ?></span><h3>                                
                         <div class="inside">
                             <p>Hey! <br />You need help with your website to fix any issue? or you wanna redesign your site and you do not have time to do it yourself. If so, you are in the right place. You do nto need to do it yourself. I can help you in all thorugh your dream design. Anyway, I am the plugin author and experienced WEB UI designer and WordPress themes and plugin developer with over seven years of practical experience. Been working as a freelancer for thousands of websites around the globe. Please do not hesitate to <a href="https://www.fiverr.com/wptahera" target="_blank">Contact Me</a>. Ready and waiting to help you asap.</p>
