@@ -14,7 +14,7 @@ class Azad_Scroll_Top_Deactivator {
 	 */
 	public static function Deactivate() {
 
-		delete_option( 'ultimate_blocks' );
+		delete_transient( '_welcome_redirect_ast' );
 
 	}
 

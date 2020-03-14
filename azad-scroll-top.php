@@ -65,28 +65,28 @@ class Azad_Scroll_Top{
 
 new Azad_Scroll_Top();
 
-function activate_ultimate_blocks() {
+function activate_ast() {
 	Inc\Admin\Azad_Scroll_Top_Activator::activate();
 }
 
-function deactivate_ultimate_blocks() {
+function deactivate_ast() {
 	Inc\Admin\Azad_Scroll_Top_Deactivator::Deactivate();
 }
 
-register_activation_hook( __FILE__, 'activate_ultimate_blocks' );
-register_deactivation_hook( __FILE__, 'deactivate_ultimate_blocks' );
+register_activation_hook( __FILE__, 'activate_ast' );
+register_deactivation_hook( __FILE__, 'deactivate_ast' );
 
-if ( ! function_exists( 'ub_safe_welcome_redirect' ) ) {
+if ( ! function_exists( 'ast_safe_welcome_redirect' ) ) {
 
-	add_action( 'admin_init', 'ub_safe_welcome_redirect' );
+	add_action( 'admin_init', 'ast_safe_welcome_redirect' );
 
-	function ub_safe_welcome_redirect() {
+	function ast_safe_welcome_redirect() {
 
-		if ( ! get_transient( '_welcome_redirect_ub' ) ) {
+		if ( ! get_transient( '_welcome_redirect_ast' ) ) {
 			return;
 		}
 
-		delete_transient( '_welcome_redirect_ub' );
+		delete_transient( '_welcome_redirect_ast' );
 
 		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
 			return;

@@ -14,7 +14,7 @@ class Azad_Scroll_Top_Activator {
 	 */
 	public static function activate() {
 
-		set_transient( '_welcome_redirect_ub', true, 60 );
+		set_transient( '_welcome_redirect_ast', true, 60 );
 
 	}
 
