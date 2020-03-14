@@ -22,6 +22,14 @@ define( 'AST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AST_URL', plugin_dir_url( __FILE__ ) );
 define( 'AST_BASENAME', plugin_basename( __FILE__ ) );
 
+if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
+    require_once dirname(__FILE__) . '/vendor/autoload.php';
+}
+
+if ( class_exists( 'Inc\\Init' ) ) :    
+    Inc\Init::register_services();
+endif;
+
 class Azad_Scroll_Top{
 
     public function __construct(){
@@ -56,3 +64,41 @@ class Azad_Scroll_Top{
 }
 
 new Azad_Scroll_Top();
+
+function activate_ultimate_blocks() {
+	Inc\Admin\Azad_Scroll_Top_Activator::activate();
+}
+
+function deactivate_ultimate_blocks() {
+	Inc\Admin\Azad_Scroll_Top_Deactivator::Deactivate();
+}
+
+register_activation_hook( __FILE__, 'activate_ultimate_blocks' );
+register_deactivation_hook( __FILE__, 'deactivate_ultimate_blocks' );
+
+if ( ! function_exists( 'ub_safe_welcome_redirect' ) ) {
+
+	add_action( 'admin_init', 'ub_safe_welcome_redirect' );
+
+	function ub_safe_welcome_redirect() {
+
+		if ( ! get_transient( '_welcome_redirect_ub' ) ) {
+			return;
+		}
+
+		delete_transient( '_welcome_redirect_ub' );
+
+		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
+			return;
+		}
+
+		wp_safe_redirect( add_query_arg(
+			array(
+				'page' => 'azad_scroll_top_settings_page'
+				),
+			admin_url( 'admin.php' )
+		) );
+
+	}
+
+}
