@@ -122,7 +122,7 @@ if ( ! class_exists( 'Admin' ) ):
                     'title'     => esc_html__( 'Color', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array(
-                        'type'          => 'brand',
+                        'type'          => 'default',
                         'custom_color'  => '#ffd635'
                     )
                 ),
@@ -130,13 +130,13 @@ if ( ! class_exists( 'Admin' ) ):
                     'id'        => 'location',
                     'title'     => esc_html__( 'Location', AST_TEXTDOMAIN ),
                     'sanitize'  => 'radio',
-                    'default'   => 'above'
+                    'default'   => 'right'
                 ),
-                'post_type' => array(
-                    'id'        => 'post_type',
-                    'title'     => esc_html__( 'Post Type', AST_TEXTDOMAIN ),
+                'animation' => array(
+                    'id'        => 'animation',
+                    'title'     => esc_html__( 'Animation', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
-                    'default'   => array( 'post' )
+                    'default'   => array( 'fade' )
                 ),
                 'speed' => array(
                     'id'        => 'speed',
@@ -149,16 +149,7 @@ if ( ! class_exists( 'Admin' ) ):
                     'title'     => esc_html__( 'Distance', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array( 'post' )
-                ),
-                'label_share' => array(
-                    'id'        => 'label_share',
-                    'title'     =>  esc_html__( 'Share label', AST_TEXTDOMAIN ),
-                    'sanitize'  => 'checkbox',
-                    'default'   => array(
-                        'text'      => 'Share this',
-                        'active'    => 0
-                    )
-                ),
+                )
 
             );
 
@@ -449,26 +440,24 @@ if ( ! class_exists( 'Admin' ) ):
          */
         public function print_color_field( $args ) {
 
-
             printf(
                 '<label class="meks_ess-color"><input type="radio" id="meks_ess-color-brand" name="%s[color][type]" value="brand" %s/>%s</label><br>',
                 $this->settings_key,
-                checked( $args['type'], 'brand', false ),
-                __( 'Brand' , 'meks-easy-social-share' )
+                checked( $args['type'], 'default', false ),
+                __( 'Default' , AST_TEXTDOMAIN )
             );
 
             printf(
                 '<label class="meks_ess-color"><input type="radio" id="meks_ess-color-custom" name="%s[color][type]" value="custom" %s/>%s</label><br>',
                 $this->settings_key,
                 checked( $args['type'], 'custom', false ),
-                __( 'Custom' , 'meks-easy-social-share' )
+                __( 'Custom' , AST_TEXTDOMAIN )
             );
 
             printf( '<input type="text" id="meks_ess-custom-color" name="%s[color][custom_color]" value="%s" />',
                 $this->settings_key,
                 $args['custom_color']
             );
-
 
         }
 
@@ -480,16 +469,16 @@ if ( ! class_exists( 'Admin' ) ):
             printf(
                 '<label><input type="radio" id="meks_ess_location_above" name="%s[location]" value="%s" %s/> %s</label><br>',
                 $this->settings_key,
-                'above',
-                checked( $args, 'above', false ),
-                __( 'Above content', 'meks-easy-social-share' )
+                'left',
+                checked( $args, 'left', false ),
+                __( 'Left Side', AST_TEXTDOMAIN )
             );
             printf(
                 '<label><input type="radio" id="meks_ess_location_below" name="%s[location]" value="%s" %s/> %s</label><br>',
                 $this->settings_key,
-                'below',
-                checked( $args, 'below', false ),
-                __( 'Below content', 'meks-easy-social-share' )
+                'right',
+                checked( $args, 'right', false ),
+                __( 'Right Side', AST_TEXTDOMAIN )
             );
 
         }
@@ -497,16 +486,16 @@ if ( ! class_exists( 'Admin' ) ):
         /**
          * Print Post Types fields
          */
-        public function print_post_type_field( $args ) {
+        public function print_animation_field( $args ) {
 
-            $post_types = azad_ss_post_types();
+            $animation = array('fade','asdf','asdf');
 
-            foreach ( $post_types as $key => $type ) {
+            foreach ( $animation as $key => $type ) {
 
                 $checked =  in_array( $key, $args ) ? $key : '';
 
                 printf(
-                    '<label><input type="checkbox" id="meks_ess_post_type_%s" name="%s[post_type][]" value="%s" %s/> %s</label><br>',
+                    '<label><input type="checkbox" id="meks_ess_post_type_%s" name="%s[animation][]" value="%s" %s/> %s</label><br>',
                     $key,
                     $this->settings_key,
                     $key,
@@ -541,30 +530,6 @@ if ( ! class_exists( 'Admin' ) ):
                 esc_html( $args['text'] )
             );
 
-        }
-
-        /**
-         * Print Label field
-         */
-        public function print_label_share_field( $args ) {
-
-            printf(
-                '<label><input type="text" id="meks_ess_label" name="%s[label_share][text]" value="%s"/></label><br>',
-                $this->settings_key,
-                esc_html( $args['text'] )
-            );
-
-            printf(
-                '<label>
-                    <input type="hidden" id="meks_ess_share_label_active" name="%s[label_share][active]" value="0" />
-                    <input type="checkbox" id="meks_ess_share_label_active" name="%s[label_share][active]" value="1" %s/>
-                    %s
-                </label><br>',
-                $this->settings_key,
-                $this->settings_key,
-                checked( $args['active'], '1', false ),
-                __( 'Enabled', 'meks-easy-social-share' )
-            );
         }
 
         public function parse_settings_for_output() {
