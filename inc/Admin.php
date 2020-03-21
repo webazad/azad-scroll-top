@@ -101,25 +101,19 @@ if ( ! class_exists( 'Admin' ) ):
             $fields = array(
                 'enable' => array(
                     'id'        => 'enable',
-                    'title'     => esc_html__( 'Enable', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Enable:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => '1'
                 ),
                 'style'     => array(
                     'id'        => 'style',
-                    'title'     => esc_html__( 'Style', AST_TEXTDOMAIN ),
-                    'sanitize'  => 'radio',
-                    'default'   => '1'
-                ),
-                'variant'   => array(
-                    'id'        => 'variant',
-                    'title'     => esc_html__( 'Variant', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Style:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'radio',
                     'default'   => '1'
                 ),
                 'color'     => array(
                     'id'        => 'color',
-                    'title'     => esc_html__( 'Color', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Color:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array(
                         'type'          => 'default',
@@ -128,27 +122,39 @@ if ( ! class_exists( 'Admin' ) ):
                 ),
                 'location'  => array(
                     'id'        => 'location',
-                    'title'     => esc_html__( 'Location', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Location:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'radio',
                     'default'   => 'right'
                 ),
                 'animation' => array(
                     'id'        => 'animation',
-                    'title'     => esc_html__( 'Animation', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Animation:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array( 'fade' )
                 ),
                 'speed' => array(
                     'id'        => 'speed',
-                    'title'     => esc_html__( 'Speed', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Speed:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array( 'post' )
                 ),
                 'distance' => array(
                     'id'        => 'distance',
-                    'title'     => esc_html__( 'Distance', AST_TEXTDOMAIN ),
+                    'title'     => esc_html__( 'Distance:', AST_TEXTDOMAIN ),
                     'sanitize'  => 'checkbox',
                     'default'   => array( 'post' )
+                ),
+                'target' => array(
+                    'id'        => 'target',
+                    'title'     => esc_html__( 'Target:', AST_TEXTDOMAIN ),
+                    'sanitize'  => 'text',
+                    'default'   => ''
+                ),
+                'css' => array(
+                    'id'        => 'css',
+                    'title'     => esc_html__( 'Custom CSS:', AST_TEXTDOMAIN ),
+                    'sanitize'  => 'text',
+                    'default'   => ''
                 )
 
             );
@@ -410,28 +416,7 @@ if ( ! class_exists( 'Admin' ) ):
 
                 $i++;
             }
-
-        }
-
-        /**
-         * Print Style Variant
-         */
-        public function print_variant_field( $args ) {
-
-            $this->styles['variant'] =  apply_filters( 'meks_ess_modify_styles', $this->styles['variant'] );
-
-            foreach ( $this->styles['variant'] as $key => $value ) {
-                printf(
-                    '<label class="meks-ess-style meks-ess-style-variant"><input type="radio" id="meks_ess-variant-%s" name="%s[variant]" value="%s" %s/><img src="%s" alt="variant-%s"> <span>%s</span></label>',
-                    $key,
-                    $this->settings_key,
-                    $key,
-                    checked( $args, $key, false ),
-                    ASS_URL . 'assets/images/variant-'.$key.'.svg',
-                    $key,
-                    ucfirst( $value )
-                );
-            }
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
 
         }
 
@@ -459,6 +444,8 @@ if ( ! class_exists( 'Admin' ) ):
                 $args['custom_color']
             );
 
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
+
         }
 
         /**
@@ -480,6 +467,8 @@ if ( ! class_exists( 'Admin' ) ):
                 checked( $args, 'right', false ),
                 __( 'Right Side', AST_TEXTDOMAIN )
             );
+
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
 
         }
 
@@ -504,6 +493,8 @@ if ( ! class_exists( 'Admin' ) ):
                 );
             }
 
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
+
         }
         
         /**
@@ -517,6 +508,8 @@ if ( ! class_exists( 'Admin' ) ):
                 esc_html( $args['text'] )
             );
 
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
+
         }
 
         /**
@@ -529,6 +522,38 @@ if ( ! class_exists( 'Admin' ) ):
                 $this->settings_key,
                 esc_html( $args['text'] )
             );
+
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
+
+        }
+
+        /**
+         * Print Post Types fields
+         */
+        public function print_target_field( $args ) {
+
+            printf(
+                '<label><input type="text" id="meks_ess_label" name="%s[label_share][text]" value="%s"/></label><br>',
+                $this->settings_key,
+                ''//esc_html( $args['text'] )
+            );
+
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
+
+        }
+
+        /**
+         * Print Post Types fields
+         */
+        public function print_css_field( $args ) {
+
+            printf(
+                '<label><input type="text" id="meks_ess_label" name="%s[label_share][text]" value="%s"/></label><br>',
+                $this->settings_key,
+                ''//esc_html( $args['text'] )
+            );
+
+            printf( '<div class="platforms-note"><em>%s</em></div>', __( 'Note: To reorder platforms just click, hold, and drag them.', ASS_TEXTDOMAIN ) );
 
         }
 
