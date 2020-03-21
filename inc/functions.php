@@ -1,10 +1,4 @@
 <?php
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 function ast_default_settings(){
     $default_settings = array(
         'azad_scroll_top_enable'        => 1,
@@ -98,3 +92,32 @@ function azad_scroll_top_scripts(){
     }
 }
 add_action('wp_enqueue_scripts','azad_scroll_top_scripts');
+
+/**
+ * Parse args ( merge arrays )
+ *
+ * Similar to wp_parse_args() but extended to also merge multidimensional arrays
+ *
+ * @param array   $a - set of values to merge
+ * @param array   $b - set of default values
+ * @return array Merged set of elements
+ * @since  1.0.0
+ */
+
+if ( !function_exists( 'ast_parse_args' ) ):
+	function ast_parse_args( &$a, $b ) {
+
+		$a = (array)$a;
+		$b = (array)$b;
+		$r = $b;
+		foreach ( $a as $k => &$v ) {
+			if ( is_array( $v ) && !isset( $v[0] ) && isset( $r[ $k ] ) ) {
+				$r[ $k ] = ast_parse_args( $v, $r[ $k ] );
+			} else {
+				$r[ $k ] = $v;
+			}
+		}
+
+		return $r;
+	}
+endif;

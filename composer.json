@@ -1,0 +1,16 @@
+{
+    "name": "azad/azad-scroll-top",
+    "description": "Azad Scroll Top is a scroll top plugin.",
+    "type": "plugin",
+    "authors": [
+        {
+            "name": "Md. Abul Kalam Azad",
+            "email": "webdevazad@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload":{
+        "psr-4":{"Ast\\":"./inc"}
+    }
+}
