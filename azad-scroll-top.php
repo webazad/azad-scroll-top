@@ -1,16 +1,16 @@
 <?php
 /* 
-Plugin Name: Azad Scroll Top
-Description: A very simple scroll top button for entire site.
-Plugin URi: gittechs.com/plugin/azad-scroll-top 
-Author: Md. Abul Kalam Azad
-Author URI: gittechs.com/author
+ Plugin Name: Azad Scroll Top
+ Description: A very simple scroll top button for entire site.
+  Plugin URI: gittechs.com/plugin/azad-scroll-top 
+      Author: Md. Abul Kalam Azad
+  Author URI: gittechs.com/author
 Author Email: webdevazad@gmail.com
-Version: 1.0.1
-Text Domain: azad-scroll-top
+     Version: 1.0.0
+ Text Domain: azad-scroll-top
 */
 
-if(! defined( 'ABSPATH' )) exit;
+if ( ! defined( 'ABSPATH' )) exit;
 
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 $plugin_data = get_plugin_data( __FILE__ );
