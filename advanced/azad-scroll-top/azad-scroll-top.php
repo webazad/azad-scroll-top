@@ -10,7 +10,7 @@ Author Email: webdevazad@gmail.com
  Text Domain: azad-scroll-top
 */
 
-if ( ! defined( 'ABSPATH' )) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 $plugin_data = get_plugin_data( __FILE__ );
@@ -18,14 +18,14 @@ $plugin_data = get_plugin_data( __FILE__ );
 define( 'AST_NAME', $plugin_data[ 'Name' ] );
 define( 'AST_VERSION', $plugin_data[ 'Version' ] );
 define( 'AST_TEXTDOMAIN', $plugin_data[ 'TextDomain' ] );
-define( 'AST_DIRPATH', plugin_dir_path( __FILE__ ) );
+define( 'AST_PATH', plugin_dir_path( __FILE__ ) );
 define( 'AST_URL', plugin_dir_url( __FILE__ ) );
 define( 'AST_BASENAME', plugin_basename( __FILE__ ) );
 
 require_once( AST_DIRPATH . 'inc/functions.php' );
 
-if(file_exists(dirname(__FILE__) . '/vendor/autoload.php')){
-    require_once dirname(__FILE__) . '/vendor/autoload.php';
+if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
+    require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
 if ( class_exists( 'Ast\\Init' ) ) :    
